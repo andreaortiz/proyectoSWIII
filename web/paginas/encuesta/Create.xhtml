@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEncuestaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEncuestaLabel_enId}" for="enId" />
+                    <h:inputText id="enId" value="#{encuestaController.selected.enId}" title="#{bundle.CreateEncuestaTitle_enId}" required="true" requiredMessage="#{bundle.CreateEncuestaRequiredMessage_enId}"/>
+                    <h:outputLabel value="#{bundle.CreateEncuestaLabel_enTit}" for="enTit" />
+                    <h:inputText id="enTit" value="#{encuestaController.selected.enTit}" title="#{bundle.CreateEncuestaTitle_enTit}" />
+                    <h:outputLabel value="#{bundle.CreateEncuestaLabel_enDes}" for="enDes" />
+                    <h:inputText id="enDes" value="#{encuestaController.selected.enDes}" title="#{bundle.CreateEncuestaTitle_enDes}" />
+                    <h:outputLabel value="#{bundle.CreateEncuestaLabel_enState}" for="enState" />
+                    <h:inputText id="enState" value="#{encuestaController.selected.enState}" title="#{bundle.CreateEncuestaTitle_enState}" />
+                    <h:outputLabel value="#{bundle.CreateEncuestaLabel_usuId}" for="usuId" />
+                    <h:selectOneMenu id="usuId" value="#{encuestaController.selected.usuId}" title="#{bundle.CreateEncuestaTitle_usuId}" required="true" requiredMessage="#{bundle.CreateEncuestaRequiredMessage_usuId}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{encuestaController.create}" value="#{bundle.CreateEncuestaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{encuestaController.prepareList}" value="#{bundle.CreateEncuestaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEncuestaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

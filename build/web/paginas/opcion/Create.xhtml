@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateOpcionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateOpcionLabel_opId}" for="opId" />
+                    <h:inputText id="opId" value="#{opcionController.selected.opId}" title="#{bundle.CreateOpcionTitle_opId}" required="true" requiredMessage="#{bundle.CreateOpcionRequiredMessage_opId}"/>
+                    <h:outputLabel value="#{bundle.CreateOpcionLabel_opEnun}" for="opEnun" />
+                    <h:inputText id="opEnun" value="#{opcionController.selected.opEnun}" title="#{bundle.CreateOpcionTitle_opEnun}" />
+                    <h:outputLabel value="#{bundle.CreateOpcionLabel_opCont}" for="opCont" />
+                    <h:inputText id="opCont" value="#{opcionController.selected.opCont}" title="#{bundle.CreateOpcionTitle_opCont}" />
+                    <h:outputLabel value="#{bundle.CreateOpcionLabel_preId}" for="preId" />
+                    <h:selectOneMenu id="preId" value="#{opcionController.selected.preId}" title="#{bundle.CreateOpcionTitle_preId}" required="true" requiredMessage="#{bundle.CreateOpcionRequiredMessage_preId}">
+                        <f:selectItems value="#{preguntaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{opcionController.create}" value="#{bundle.CreateOpcionSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{opcionController.prepareList}" value="#{bundle.CreateOpcionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateOpcionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

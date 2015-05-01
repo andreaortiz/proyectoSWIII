@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOpcionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOpcionLabel_opId}" for="opId" />
+                    <h:inputText id="opId" value="#{opcionController.selected.opId}" title="#{bundle.EditOpcionTitle_opId}" required="true" requiredMessage="#{bundle.EditOpcionRequiredMessage_opId}"/>
+                    <h:outputLabel value="#{bundle.EditOpcionLabel_opEnun}" for="opEnun" />
+                    <h:inputText id="opEnun" value="#{opcionController.selected.opEnun}" title="#{bundle.EditOpcionTitle_opEnun}" />
+                    <h:outputLabel value="#{bundle.EditOpcionLabel_opCont}" for="opCont" />
+                    <h:inputText id="opCont" value="#{opcionController.selected.opCont}" title="#{bundle.EditOpcionTitle_opCont}" />
+                    <h:outputLabel value="#{bundle.EditOpcionLabel_preId}" for="preId" />
+                    <h:selectOneMenu id="preId" value="#{opcionController.selected.preId}" title="#{bundle.EditOpcionTitle_preId}" required="true" requiredMessage="#{bundle.EditOpcionRequiredMessage_preId}">
+                        <f:selectItems value="#{preguntaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{opcionController.update}" value="#{bundle.EditOpcionSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditOpcionViewLink}"/>
+                <br />
+                <h:commandLink action="#{opcionController.prepareList}" value="#{bundle.EditOpcionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditOpcionIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

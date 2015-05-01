@@ -1,0 +1,161 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package entidades;
+
+import java.io.Serializable;
+import java.util.Collection;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+/**
+ *
+ * @author AnDreiTa
+ */
+@Entity
+@Table(name = "usuario")
+@NamedQueries({
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
+    @NamedQuery(name = "Usuario.findByUsuId", query = "SELECT u FROM Usuario u WHERE u.usuId = :usuId"),
+    @NamedQuery(name = "Usuario.findByUsuNomusu", query = "SELECT u FROM Usuario u WHERE u.usuNomusu = :usuNomusu"),
+    @NamedQuery(name = "Usuario.findByUsuPass", query = "SELECT u FROM Usuario u WHERE u.usuPass = :usuPass"),
+    @NamedQuery(name = "Usuario.findByUsuNomb", query = "SELECT u FROM Usuario u WHERE u.usuNomb = :usuNomb"),
+    @NamedQuery(name = "Usuario.findByUsuApel", query = "SELECT u FROM Usuario u WHERE u.usuApel = :usuApel"),
+    @NamedQuery(name = "Usuario.findByUsuEmail", query = "SELECT u FROM Usuario u WHERE u.usuEmail = :usuEmail")})
+public class Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "USU_ID")
+    private Integer usuId;
+    @Size(max = 20)
+    @Column(name = "USU_NOMUSU")
+    private String usuNomusu;
+    @Size(max = 20)
+    @Column(name = "USU_PASS")
+    private String usuPass;
+    @Size(max = 50)
+    @Column(name = "USU_NOMB")
+    private String usuNomb;
+    @Size(max = 50)
+    @Column(name = "USU_APEL")
+    private String usuApel;
+    @Size(max = 50)
+    @Column(name = "USU_EMAIL")
+    private String usuEmail;
+    @Lob
+    @Column(name = "USU_FOTO")
+    private byte[] usuFoto;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuId")
+    private Collection<Encuesta> encuestaCollection;
+
+    public Usuario() {
+    }
+
+    public Usuario(Integer usuId) {
+        this.usuId = usuId;
+    }
+
+    public Integer getUsuId() {
+        return usuId;
+    }
+
+    public void setUsuId(Integer usuId) {
+        this.usuId = usuId;
+    }
+
+    public String getUsuNomusu() {
+        return usuNomusu;
+    }
+
+    public void setUsuNomusu(String usuNomusu) {
+        this.usuNomusu = usuNomusu;
+    }
+
+    public String getUsuPass() {
+        return usuPass;
+    }
+
+    public void setUsuPass(String usuPass) {
+        this.usuPass = usuPass;
+    }
+
+    public String getUsuNomb() {
+        return usuNomb;
+    }
+
+    public void setUsuNomb(String usuNomb) {
+        this.usuNomb = usuNomb;
+    }
+
+    public String getUsuApel() {
+        return usuApel;
+    }
+
+    public void setUsuApel(String usuApel) {
+        this.usuApel = usuApel;
+    }
+
+    public String getUsuEmail() {
+        return usuEmail;
+    }
+
+    public void setUsuEmail(String usuEmail) {
+        this.usuEmail = usuEmail;
+    }
+
+    public byte[] getUsuFoto() {
+        return usuFoto;
+    }
+
+    public void setUsuFoto(byte[] usuFoto) {
+        this.usuFoto = usuFoto;
+    }
+
+    public Collection<Encuesta> getEncuestaCollection() {
+        return encuestaCollection;
+    }
+
+    public void setEncuestaCollection(Collection<Encuesta> encuestaCollection) {
+        this.encuestaCollection = encuestaCollection;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (usuId != null ? usuId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Usuario)) {
+            return false;
+        }
+        Usuario other = (Usuario) object;
+        if ((this.usuId == null && other.usuId != null) || (this.usuId != null && !this.usuId.equals(other.usuId))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "entidades.Usuario[ usuId=" + usuId + " ]";
+    }
+    
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListOpcionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListOpcionEmpty}" rendered="#{opcionController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{opcionController.items.rowCount > 0}">
+                    <h:outputText value="#{opcionController.pagination.pageFirstItem + 1}..#{opcionController.pagination.pageLastItem + 1}/#{opcionController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{opcionController.previous}" value="#{bundle.Previous} #{opcionController.pagination.pageSize}" rendered="#{opcionController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{opcionController.next}" value="#{bundle.Next} #{opcionController.pagination.pageSize}" rendered="#{opcionController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{opcionController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOpcionTitle_opId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOpcionTitle_opEnun}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opEnun}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOpcionTitle_opCont}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opCont}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOpcionTitle_preId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.preId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{opcionController.prepareView}" value="#{bundle.ListOpcionViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{opcionController.prepareEdit}" value="#{bundle.ListOpcionEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{opcionController.destroy}" value="#{bundle.ListOpcionDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{opcionController.prepareCreate}" value="#{bundle.ListOpcionCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListOpcionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

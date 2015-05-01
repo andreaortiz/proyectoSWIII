@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript" src="js/cufon-yui.js"></script>
+        <script type="text/javascript" src="js/arial.js"></script>
+        <script type="text/javascript" src="js/cuf_run.js"></script>
+    </h:head>
+    <h:body>
+        <div class="main">
+            <div class="header">
+                <div class="header_resize">
+                    <div class="logo">
+                        <h1><span>Encuestas </span>OnLine<br /></h1>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li><h:link outcome="/index" value="Inicio"></h:link></li>
+                            <li><h:link outcome="/index" value="Blog"></h:link></li>
+                            <li><h:link outcome="/index" value="Cont&aacute;ctanos"></h:link></li>
+                        </ul>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <div class="hbg">
+                <div class="hbg_resizeReg">
+                    <div class="boton2">
+                        <h:link outcome="/login"><h:graphicImage value="images/iniciarsesion.png" width="110" height="30" alt="" class="readmore"></h:graphicImage></h:link>
+                    </div><br/>
+                    <h1>
+                        <ui:insert name="title">Default Title</ui:insert>
+                    </h1>
+                    <p>
+                        <ui:insert name="body">Default Body</ui:insert>
+                    </p>
+                </div>
+            </div>
+            <div class="usuarioReg">
+                <h:graphicImage value="images/registrateUsuario.png" width="300" height="300" alt=""></h:graphicImage>
+            </div>
+            <div class="footer">
+                <div class="footer_resize">
+                    <p class="lf">&copy; Copyright MyWebSite. Designed by Blue <a href="http://www.bluewebtemplates.com/">Website Templates</a></p>
+                    
+                </div>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <div align="center">This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+        
+    </h:body>
+
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePreguntaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePreguntaLabel_preId}" for="preId" />
+                    <h:inputText id="preId" value="#{preguntaController.selected.preId}" title="#{bundle.CreatePreguntaTitle_preId}" required="true" requiredMessage="#{bundle.CreatePreguntaRequiredMessage_preId}"/>
+                    <h:outputLabel value="#{bundle.CreatePreguntaLabel_preEnun}" for="preEnun" />
+                    <h:inputText id="preEnun" value="#{preguntaController.selected.preEnun}" title="#{bundle.CreatePreguntaTitle_preEnun}" />
+                    <h:outputLabel value="#{bundle.CreatePreguntaLabel_preTipo}" for="preTipo" />
+                    <h:inputText id="preTipo" value="#{preguntaController.selected.preTipo}" title="#{bundle.CreatePreguntaTitle_preTipo}" />
+                    <h:outputLabel value="#{bundle.CreatePreguntaLabel_enId}" for="enId" />
+                    <h:selectOneMenu id="enId" value="#{preguntaController.selected.enId}" title="#{bundle.CreatePreguntaTitle_enId}" required="true" requiredMessage="#{bundle.CreatePreguntaRequiredMessage_enId}">
+                        <f:selectItems value="#{encuestaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{preguntaController.create}" value="#{bundle.CreatePreguntaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{preguntaController.prepareList}" value="#{bundle.CreatePreguntaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePreguntaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
