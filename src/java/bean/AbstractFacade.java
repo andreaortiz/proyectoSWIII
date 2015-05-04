@@ -7,6 +7,7 @@ package bean;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -60,4 +61,14 @@ public abstract class AbstractFacade<T> {
         return ((Long) q.getSingleResult()).intValue();
     }
     
+    public T findNomUsu(String NomUsu) {
+        Query query = getEntityManager().createNamedQuery("Usuario.findByUsuNomusu");
+        query.setParameter("usuNomusu", NomUsu);
+        return (T)query.getSingleResult();
+    }
+    public T findPass(String Pass) {
+        Query query = getEntityManager().createNamedQuery("Usuario.findByUsuPass");
+        query.setParameter("usuPass", Pass);
+        return (T)query.getSingleResult();
+    }
 }

@@ -15,7 +15,6 @@ h2 { font:bold 24px Arial, Helvetica, sans-serif; color:#323a3f; padding:8px 0; 
 p { margin:8px 0; padding:0 0 8px 0; font:normal 12px/1.8em Arial, Helvetica, sans-serif; text-align: center;}
 a { color:#03a5d1; text-decoration:none;}
 a:hover { text-decoration:underline;}
-.boton1 {position: absolute; top: 50px; right: 350px;}
 .boton2 {position: absolute; top: 50px; right: 220px;}
 .usuarioReg{position: absolute; top: 280px; right: 220px;}
 
@@ -67,7 +66,6 @@ ul.ex_menu li a:hover { text-decoration:none;}
 .fbg_resize .c3 img { margin:4px; padding:0;}
 
 /* footer */
-.ft { background:#e9e9e9 url(images/header_bg.gif) repeat-x top; padding-top:33px;}
 .footer { margin:0; padding:0;}
 .footer_resize { margin:0 auto; padding:8px 0; width:900px;}
 .footer_resize p.lf { float:right; width:auto;}

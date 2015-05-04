@@ -32,12 +32,12 @@
                 <div class="hbg_resize">
                     <h2>Acerca de...</h2>
                     <p>Gracias a Encuestas OnLine podr&aacute;s elaborar tus propias encuestas de manera r&aacute;pida y sencilla. Tambien podr&aacute;s responder cualquier encuesta realizada por otro usuario. </p>
-                    <div class="boton1">
+                
                         <h:link outcome="/login"><h:graphicImage value="images/iniciarsesion.png" width="110" height="30" alt="" class="readmore"></h:graphicImage></h:link>
-                    </div><br/>
+                   
                     <div class="boton2">
                         <h:link outcome="/registrar"><h:graphicImage value="images/registrarse.png" width="110" height="30" alt="" class="readmore"></h:graphicImage></h:link>
-                    </div>
+                    </div><br/>
                     <p><big><strong>¿Como utilizar este servicio? </strong></big><br/>
                         Para disfrutar de este servicio Inicia Sesi&oacute;n.</p>
                 </div>
@@ -46,13 +46,18 @@
             <div class="footer">
                 <div class="footer_resize">
                     <p class="lf">&copy; Copyright MyWebSite. Designed by Blue <a href="http://www.bluewebtemplates.com/">Website Templates</a></p>
+                    <ul class="fmenu">
+                        <li class="active"><h:link outcome="/index" value="Inicio"></h:link></li>
+                        <li><h:link outcome="/index" value="Blog"></h:link></li>
+                        <li><h:link outcome="/index" value="Cont&aacute;ctanos"></h:link></li>
+                    </ul>
                 </div>
                 <div class="clr"></div>
             </div>
-        </div><br/><br/><br/>
+        </div>
         <div align="center">This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
-        <div class="ft">
-            </div>
+        <h:link outcome="/paginas/usuario/List" value="Show All Usuario Items"/>
+        <h:link outcome="/login" value="Show All Usuario"/>
     </h:body>
 </html>
 

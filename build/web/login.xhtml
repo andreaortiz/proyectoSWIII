@@ -7,22 +7,19 @@
 
     <ui:composition template="/templateLogin.xhtml">
         <ui:define name="title">
-           <h:outputText value="Iniciar sesi&oacute;n"></h:outputText>
+           <h:outputText value="#{bundle.CreateUsuarioTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            <h:form>
-                 <h:panelGrid columns="2">
-                    <h:outputLabel value="Usuario:" for="usuNomusu"/>
-                    <h:inputText id="usuNomusu" value="#{usuarioController.selected.usuNomusu}" title="#{bundle.EditUsuarioTitle_usuNomusu}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_nomUsu}"/>
-                    <h:outputLabel value="Contraseña:" for="usuPass"/>
-                    <h:inputText id="usuPass" value="#{usuarioController.selected.usuPass}" title="#{bundle.EditUsuarioTitle_usuNomusu}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_nomUsu}"/>
-                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{usuarioController.find()}" value="Aceptar" />
-                <br />
+            <h:form id="Login">
+                <h:outputLabel value="Login:"/>
+                <h:inputText value="#{loginController.selected.usuNomusu}"/>
+                <br></br>
+                <h:outputLabel value="Contraseña:"/>
+                <h:inputText value="#{loginController.selected.usuPass}"/>
+                <h:commandButton value="Iniciar sesion" action="#{loginController.autenticar()}"/>
             </h:form>
         </ui:define>
     </ui:composition>

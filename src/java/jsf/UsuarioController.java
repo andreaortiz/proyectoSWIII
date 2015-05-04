@@ -81,8 +81,6 @@ public class UsuarioController implements Serializable {
 
     public String create() {
         try {
-            byte[] foto = {};
-            current.setUsuFoto(null);
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
             return prepareCreate();
@@ -91,6 +89,7 @@ public class UsuarioController implements Serializable {
             return null;
         }
     }
+
     public String prepareEdit() {
         current = (Usuario) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
@@ -227,43 +226,6 @@ public class UsuarioController implements Serializable {
             }
         }
 
-    }
-    
-    /*
-    
-        public String create() {
-        try {
-            getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
-            return prepareCreate();
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-            return null;
-        }
-    }
-    */
-    
-    public String find()
-    {
-        try {
-            
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
-            return getFacade().find(current.getUsuId()).getUsuPass();
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-            return null;
-        }
-    }
-    
-    public String validate() {
-        try {
-            getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
-            return prepareCreate();
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-            return null;
-        }
     }
 
 }

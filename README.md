@@ -1,2 +1,0 @@
-# proyectoSWIII
-Encuestas OnLine
