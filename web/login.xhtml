@@ -18,10 +18,10 @@
                     <h:outputLabel value="Usuario:" for="usuNomusu"/>
                     <h:inputText id="usuNomusu" value="#{usuarioController.selected.usuNomusu}" title="#{bundle.EditUsuarioTitle_usuNomusu}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_nomUsu}"/>
                     <h:outputLabel value="Contraseña:" for="usuPass"/>
-                    <h:inputText id="usuPass" value="#{usuarioController.selected.usuPass}" title="#{bundle.EditUsuarioTitle_usuPass}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_passUsu}"/>
+                    <h:inputText id="usuPass" value="#{usuarioController.selected.usuPass}" title="#{bundle.EditUsuarioTitle_usuNomusu}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_nomUsu}"/>
                  </h:panelGrid>
                 <br />
-                <h:commandLink action="#{usuarioController.create}" value="Aceptar" />
+                <h:commandLink action="#{usuarioController.find()}" value="Aceptar" />
                 <br />
             </h:form>
         </ui:define>

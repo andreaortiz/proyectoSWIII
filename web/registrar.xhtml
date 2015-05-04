@@ -2,8 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <ui:composition template="/templateRegistro.xhtml">
         <ui:define name="title">
@@ -28,7 +27,13 @@
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_usuEmail}" for="usuEmail" />
                     <h:inputText id="usuEmail" value="#{usuarioController.selected.usuEmail}" title="#{bundle.CreateUsuarioTitle_usuEmail}" />
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_usuFoto}" for="usuFoto" />
-                    <h:inputTextarea rows="4" cols="30" id="usuFoto" value="#{usuarioController.selected.usuFoto}" title="#{bundle.CreateUsuarioTitle_usuFoto}" />
+                    <h:inputTextarea rows="4" cols="30" id="usuFoto" title="#{bundle.CreateUsuarioTitle_usuFoto}" />
+
+                    
+                    <form method="post" action="accion.php" enctype="multipart/form-data">
+                    Ingresa el archivo:
+                    <input name="imagen" type="file" />
+                    </form>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{usuarioController.create}" value="#{bundle.CreateUsuarioSaveLink}" />
