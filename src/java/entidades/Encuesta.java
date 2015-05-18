@@ -11,6 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,7 +25,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author AnDreiTa
+ * @author AnDeiiTa
  */
 @Entity
 @Table(name = "encuesta")
@@ -32,24 +34,31 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Encuesta.findByEnId", query = "SELECT e FROM Encuesta e WHERE e.enId = :enId"),
     @NamedQuery(name = "Encuesta.findByEnTit", query = "SELECT e FROM Encuesta e WHERE e.enTit = :enTit"),
     @NamedQuery(name = "Encuesta.findByEnDes", query = "SELECT e FROM Encuesta e WHERE e.enDes = :enDes"),
+    @NamedQuery(name = "Encuesta.findByUsuId", query = "SELECT e FROM Encuesta e WHERE e.usuId.usuId = :usuId"),
     @NamedQuery(name = "Encuesta.findByEnState", query = "SELECT e FROM Encuesta e WHERE e.enState = :enState")})
 public class Encuesta implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "en_id")
+    private Integer enId;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "EN_ID")
-    private Integer enId;
-    @Size(max = 50)
-    @Column(name = "EN_TIT")
+    @Size(min = 1, max = 50)
+    @Column(name = "en_tit")
     private String enTit;
-    @Size(max = 200)
-    @Column(name = "EN_DES")
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 200)
+    @Column(name = "en_des")
     private String enDes;
-    @Size(max = 50)
-    @Column(name = "EN_STATE")
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "en_state")
     private String enState;
-    @JoinColumn(name = "USU_ID", referencedColumnName = "USU_ID")
+    @JoinColumn(name = "usu_id", referencedColumnName = "usu_id")
     @ManyToOne(optional = false)
     private Usuario usuId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "enId")
@@ -60,6 +69,13 @@ public class Encuesta implements Serializable {
 
     public Encuesta(Integer enId) {
         this.enId = enId;
+    }
+
+    public Encuesta(Integer enId, String enTit, String enDes, String enState) {
+        this.enId = enId;
+        this.enTit = enTit;
+        this.enDes = enDes;
+        this.enState = enState;
     }
 
     public Integer getEnId() {

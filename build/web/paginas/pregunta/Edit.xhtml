@@ -18,9 +18,9 @@
                     <h:outputLabel value="#{bundle.EditPreguntaLabel_preId}" for="preId" />
                     <h:inputText id="preId" value="#{preguntaController.selected.preId}" title="#{bundle.EditPreguntaTitle_preId}" required="true" requiredMessage="#{bundle.EditPreguntaRequiredMessage_preId}"/>
                     <h:outputLabel value="#{bundle.EditPreguntaLabel_preEnun}" for="preEnun" />
-                    <h:inputText id="preEnun" value="#{preguntaController.selected.preEnun}" title="#{bundle.EditPreguntaTitle_preEnun}" />
+                    <h:inputText id="preEnun" value="#{preguntaController.selected.preEnun}" title="#{bundle.EditPreguntaTitle_preEnun}" required="true" requiredMessage="#{bundle.EditPreguntaRequiredMessage_preEnun}"/>
                     <h:outputLabel value="#{bundle.EditPreguntaLabel_preTipo}" for="preTipo" />
-                    <h:inputText id="preTipo" value="#{preguntaController.selected.preTipo}" title="#{bundle.EditPreguntaTitle_preTipo}" />
+                    <h:inputText id="preTipo" value="#{preguntaController.selected.preTipo}" title="#{bundle.EditPreguntaTitle_preTipo}" required="true" requiredMessage="#{bundle.EditPreguntaRequiredMessage_preTipo}"/>
                     <h:outputLabel value="#{bundle.EditPreguntaLabel_enId}" for="enId" />
                     <h:selectOneMenu id="enId" value="#{preguntaController.selected.enId}" title="#{bundle.EditPreguntaTitle_enId}" required="true" requiredMessage="#{bundle.EditPreguntaRequiredMessage_enId}">
                         <f:selectItems value="#{encuestaController.itemsAvailableSelectOne}"/>

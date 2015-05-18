@@ -2,30 +2,32 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="paginas/encuesta/View.xhtml" x="1400" y="150" zoom="true"/>
-        <Node id="paginas/pregunta/Edit.xhtml" x="400" y="300" zoom="true"/>
-        <Node id="paginas/pregunta/Create.xhtml" x="150" y="900" zoom="true"/>
-        <Node id="paginas/encuesta/List.xhtml" x="400" y="150" zoom="true"/>
-        <Node id="registrar.xhtml" x="1150" y="300" zoom="true"/>
-        <Node id="paginas/usuario/Edit.xhtml" x="650" y="600" zoom="true"/>
-        <Node id="paginas/usuario/Create.xhtml" x="150" y="450" zoom="true"/>
-        <Node id="paginas/opcion/View.xhtml" x="1150" y="450" zoom="true"/>
-        <Node id="templateLogin.xhtml" x="1400" y="300" zoom="true"/>
-        <Node id="paginas/encuesta/Create.xhtml" x="650" y="300" zoom="true"/>
-        <Node id="paginas/opcion/Edit.xhtml" x="400" y="450" zoom="true"/>
-        <Node id="Exito.jsp" x="150" y="600" zoom="true"/>
+        <Node id="paginas/encuesta/View.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="paginas/pregunta/Edit.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="paginas/pregunta/Create.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="paginas/encuesta/List.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="registrar.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="listarEncuestas.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="paginas/usuario/Edit.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="crearEncuestas.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="paginas/usuario/Create.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="templateLogin.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="paginas/opcion/View.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="paginas/encuesta/Create.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="paginas/opcion/Edit.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="editarEncuestas.xhtml" x="900" y="450" zoom="true"/>
         <Node id="template.xhtml" x="900" y="300" zoom="true"/>
-        <Node id="templateRegistro.xhtml" x="900" y="450" zoom="true"/>
-        <Node id="paginas/encuesta/Edit.xhtml" x="1150" y="150" zoom="true"/>
-        <Node id="paginas/opcion/Create.xhtml" x="400" y="600" zoom="true"/>
-        <Node id="index.xhtml" x="900" y="150" zoom="true"/>
-        <Node id="paginas/usuario/List.xhtml" x="1650" y="150" zoom="true"/>
-        <Node id="Fallo.jsp" x="650" y="450" zoom="true"/>
-        <Node id="paginas/usuario/View.xhtml" x="150" y="750" zoom="true"/>
-        <Node id="paginas/opcion/List.xhtml" x="150" y="150" zoom="true"/>
-        <Node id="login.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="templateRegistro.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="paginas/encuesta/Edit.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="paginas/opcion/Create.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="index.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="paginas/usuario/List.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="paginas/opcion/List.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="paginas/usuario/View.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="login.xhtml" x="150" y="750" zoom="true"/>
         <Node id="paginas/pregunta/List.xhtml" x="150" y="300" zoom="true"/>
-        <Node id="paginas/pregunta/View.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="templateUsuario.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="paginas/pregunta/View.xhtml" x="900" y="600" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

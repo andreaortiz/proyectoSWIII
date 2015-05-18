@@ -18,11 +18,11 @@
                     <h:outputLabel value="#{bundle.CreateEncuestaLabel_enId}" for="enId" />
                     <h:inputText id="enId" value="#{encuestaController.selected.enId}" title="#{bundle.CreateEncuestaTitle_enId}" required="true" requiredMessage="#{bundle.CreateEncuestaRequiredMessage_enId}"/>
                     <h:outputLabel value="#{bundle.CreateEncuestaLabel_enTit}" for="enTit" />
-                    <h:inputText id="enTit" value="#{encuestaController.selected.enTit}" title="#{bundle.CreateEncuestaTitle_enTit}" />
+                    <h:inputText id="enTit" value="#{encuestaController.selected.enTit}" title="#{bundle.CreateEncuestaTitle_enTit}" required="true" requiredMessage="#{bundle.CreateEncuestaRequiredMessage_enTit}"/>
                     <h:outputLabel value="#{bundle.CreateEncuestaLabel_enDes}" for="enDes" />
-                    <h:inputText id="enDes" value="#{encuestaController.selected.enDes}" title="#{bundle.CreateEncuestaTitle_enDes}" />
+                    <h:inputText id="enDes" value="#{encuestaController.selected.enDes}" title="#{bundle.CreateEncuestaTitle_enDes}" required="true" requiredMessage="#{bundle.CreateEncuestaRequiredMessage_enDes}"/>
                     <h:outputLabel value="#{bundle.CreateEncuestaLabel_enState}" for="enState" />
-                    <h:inputText id="enState" value="#{encuestaController.selected.enState}" title="#{bundle.CreateEncuestaTitle_enState}" />
+                    <h:inputText id="enState" value="#{encuestaController.selected.enState}" title="#{bundle.CreateEncuestaTitle_enState}" required="true" requiredMessage="#{bundle.CreateEncuestaRequiredMessage_enState}"/>
                     <h:outputLabel value="#{bundle.CreateEncuestaLabel_usuId}" for="usuId" />
                     <h:selectOneMenu id="usuId" value="#{encuestaController.selected.usuId}" title="#{bundle.CreateEncuestaTitle_usuId}" required="true" requiredMessage="#{bundle.CreateEncuestaRequiredMessage_usuId}">
                         <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>

@@ -3,42 +3,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-
+      xmlns:p="http://primefaces.org/ui">
+      
+      
     <ui:composition template="/templateRegistro.xhtml">
         <ui:define name="title">
-            <h:outputText value="Registrarse"></h:outputText>
+            <h:outputText value="Crea una cuenta"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form enctype="multipart/form-data">
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateUsuarioLabel_usuId}" for="usuId" />
-                    <h:inputText id="usuId" value="#{usuarioController.selected.usuId}" title="#{bundle.CreateUsuarioTitle_usuId}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usuId}"/>
+           
+            <h:form id="form" enctype="multipart/form-data">
+                <h:panelGrid columns="3">
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_usuNomusu}" for="usuNomusu" />
                     <h:inputText id="usuNomusu" value="#{usuarioController.selected.usuNomusu}" title="#{bundle.CreateUsuarioTitle_usuNomusu}" />
+                     <h:message for="usuNomusu" errorStyle="color: red" infoStyle="color: green"/>
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_usuPass}" for="usuPass" />
                     <h:inputText id="usuPass" value="#{usuarioController.selected.usuPass}" title="#{bundle.CreateUsuarioTitle_usuPass}" />
+                   <h:message for="usuPass" errorStyle="color: red" infoStyle="color: green"/>
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_usuNomb}" for="usuNomb" />
                     <h:inputText id="usuNomb" value="#{usuarioController.selected.usuNomb}" title="#{bundle.CreateUsuarioTitle_usuNomb}" />
+                    <h:message for="usuNomb" errorStyle="color: red" infoStyle="color: green"/>
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_usuApel}" for="usuApel" />
                     <h:inputText id="usuApel" value="#{usuarioController.selected.usuApel}" title="#{bundle.CreateUsuarioTitle_usuApel}" />
+                    <h:message for="usuApel" errorStyle="color: red" infoStyle="color: green"/>
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_usuEmail}" for="usuEmail" />
                     <h:inputText id="usuEmail" value="#{usuarioController.selected.usuEmail}" title="#{bundle.CreateUsuarioTitle_usuEmail}" />
+                    <h:message for="usuEmail" errorStyle="color: red" infoStyle="color: green"/>
                     <h:outputLabel value="#{bundle.CreateUsuarioLabel_usuFoto}" for="usuFoto" />
-                    <h:inputTextarea rows="4" cols="30" id="usuFoto" value="#{usuarioController.selected.usuFoto}" title="#{bundle.CreateUsuarioTitle_usuFoto}" />
-                    <h:inputFile/><br/>
+                    <p:fileUpload id="usuFoto" mode="simple" value="#{usuarioController.imp}"/>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{usuarioController.create}" value="#{bundle.CreateUsuarioSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{usuarioController.prepareList}" value="#{bundle.CreateUsuarioShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateUsuarioIndexLink}"/>
+                
+                <p:commandButton value="Aceptar" ajax="false" actionListener="#{usuarioController.create}"/>
+                <p:commandButton value="Cancelar" ajax="false" action="/index"/><br />
+                <h:outputLabel value="* Campos obligatorios para registro"/>
+             
             </h:form>
         </ui:define>
     </ui:composition>

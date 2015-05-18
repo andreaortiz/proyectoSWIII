@@ -11,6 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
@@ -22,7 +24,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author AnDreiTa
+ * @author AnDeiiTa
  */
 @Entity
 @Table(name = "usuario")
@@ -37,27 +39,37 @@ import javax.validation.constraints.Size;
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "usu_id")
+    private Integer usuId;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "USU_ID")
-    private Integer usuId;
-    @Size(max = 20)
-    @Column(name = "USU_NOMUSU")
+    @Size(min = 1, max = 20)
+    @Column(name = "usu_nomusu")
     private String usuNomusu;
-    @Size(max = 20)
-    @Column(name = "USU_PASS")
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "usu_pass")
     private String usuPass;
-    @Size(max = 50)
-    @Column(name = "USU_NOMB")
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "usu_nomb")
     private String usuNomb;
-    @Size(max = 50)
-    @Column(name = "USU_APEL")
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "usu_apel")
     private String usuApel;
-    @Size(max = 50)
-    @Column(name = "USU_EMAIL")
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "usu_email")
     private String usuEmail;
     @Lob
-    @Column(name = "USU_FOTO")
+    @Column(name = "usu_foto")
     private byte[] usuFoto;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuId")
     private Collection<Encuesta> encuestaCollection;
@@ -67,6 +79,15 @@ public class Usuario implements Serializable {
 
     public Usuario(Integer usuId) {
         this.usuId = usuId;
+    }
+
+    public Usuario(Integer usuId, String usuNomusu, String usuPass, String usuNomb, String usuApel, String usuEmail) {
+        this.usuId = usuId;
+        this.usuNomusu = usuNomusu;
+        this.usuPass = usuPass;
+        this.usuNomb = usuNomb;
+        this.usuApel = usuApel;
+        this.usuEmail = usuEmail;
     }
 
     public Integer getUsuId() {

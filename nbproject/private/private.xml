@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/Online/web/login.xhtml</file>
-            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/Online/src/java/bean/UsuarioFacade.java</file>
-            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/Online/src/java/jsf/LoginControlador.java</file>
-            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/Online/src/java/entidades/Usuario.java</file>
-            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/Online/src/java/Bundle.properties</file>
-            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/Online/src/java/bean/AbstractFacade.java</file>
-            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/Online/src/java/jsf/util/JsfUtil.java</file>
+            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/EncuestasOnline/src/java/beans/sessions/AbstractFacade.java</file>
+            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/EncuestasOnline/src/java/jsf/clases/EncuestaController.java</file>
+            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/EncuestasOnline/src/java/jsf/clases/LoginControlador.java</file>
+            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/EncuestasOnline/src/java/jsf/clases/util/PaginationHelper.java</file>
+            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/EncuestasOnline/web/editarEncuestas.xhtml</file>
+            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/EncuestasOnline/src/java/jsf/clases/OpcionController.java</file>
+            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/EncuestasOnline/src/java/jsf/clases/PreguntaController.java</file>
+            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/EncuestasOnline/web/listarEncuestas.xhtml</file>
+            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/EncuestasOnline/src/java/entidades/Encuesta.java</file>
+            <file>file:/C:/Users/AnDreiTa/Documents/NetBeansProjects/EncuestasOnline/web/login.xhtml</file>
         </group>
     </open-files>
 </project-private>

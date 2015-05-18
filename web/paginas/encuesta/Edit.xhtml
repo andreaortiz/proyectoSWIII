@@ -18,11 +18,11 @@
                     <h:outputLabel value="#{bundle.EditEncuestaLabel_enId}" for="enId" />
                     <h:inputText id="enId" value="#{encuestaController.selected.enId}" title="#{bundle.EditEncuestaTitle_enId}" required="true" requiredMessage="#{bundle.EditEncuestaRequiredMessage_enId}"/>
                     <h:outputLabel value="#{bundle.EditEncuestaLabel_enTit}" for="enTit" />
-                    <h:inputText id="enTit" value="#{encuestaController.selected.enTit}" title="#{bundle.EditEncuestaTitle_enTit}" />
+                    <h:inputText id="enTit" value="#{encuestaController.selected.enTit}" title="#{bundle.EditEncuestaTitle_enTit}" required="true" requiredMessage="#{bundle.EditEncuestaRequiredMessage_enTit}"/>
                     <h:outputLabel value="#{bundle.EditEncuestaLabel_enDes}" for="enDes" />
-                    <h:inputText id="enDes" value="#{encuestaController.selected.enDes}" title="#{bundle.EditEncuestaTitle_enDes}" />
+                    <h:inputText id="enDes" value="#{encuestaController.selected.enDes}" title="#{bundle.EditEncuestaTitle_enDes}" required="true" requiredMessage="#{bundle.EditEncuestaRequiredMessage_enDes}"/>
                     <h:outputLabel value="#{bundle.EditEncuestaLabel_enState}" for="enState" />
-                    <h:inputText id="enState" value="#{encuestaController.selected.enState}" title="#{bundle.EditEncuestaTitle_enState}" />
+                    <h:inputText id="enState" value="#{encuestaController.selected.enState}" title="#{bundle.EditEncuestaTitle_enState}" required="true" requiredMessage="#{bundle.EditEncuestaRequiredMessage_enState}"/>
                     <h:outputLabel value="#{bundle.EditEncuestaLabel_usuId}" for="usuId" />
                     <h:selectOneMenu id="usuId" value="#{encuestaController.selected.usuId}" title="#{bundle.EditEncuestaTitle_usuId}" required="true" requiredMessage="#{bundle.EditEncuestaRequiredMessage_usuId}">
                         <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>

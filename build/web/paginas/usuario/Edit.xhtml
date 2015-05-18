@@ -18,15 +18,15 @@
                     <h:outputLabel value="#{bundle.EditUsuarioLabel_usuId}" for="usuId" />
                     <h:inputText id="usuId" value="#{usuarioController.selected.usuId}" title="#{bundle.EditUsuarioTitle_usuId}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_usuId}"/>
                     <h:outputLabel value="#{bundle.EditUsuarioLabel_usuNomusu}" for="usuNomusu" />
-                    <h:inputText id="usuNomusu" value="#{usuarioController.selected.usuNomusu}" title="#{bundle.EditUsuarioTitle_usuNomusu}" />
+                    <h:inputText id="usuNomusu" value="#{usuarioController.selected.usuNomusu}" title="#{bundle.EditUsuarioTitle_usuNomusu}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_usuNomusu}"/>
                     <h:outputLabel value="#{bundle.EditUsuarioLabel_usuPass}" for="usuPass" />
-                    <h:inputText id="usuPass" value="#{usuarioController.selected.usuPass}" title="#{bundle.EditUsuarioTitle_usuPass}" />
+                    <h:inputText id="usuPass" value="#{usuarioController.selected.usuPass}" title="#{bundle.EditUsuarioTitle_usuPass}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_usuPass}"/>
                     <h:outputLabel value="#{bundle.EditUsuarioLabel_usuNomb}" for="usuNomb" />
-                    <h:inputText id="usuNomb" value="#{usuarioController.selected.usuNomb}" title="#{bundle.EditUsuarioTitle_usuNomb}" />
+                    <h:inputText id="usuNomb" value="#{usuarioController.selected.usuNomb}" title="#{bundle.EditUsuarioTitle_usuNomb}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_usuNomb}"/>
                     <h:outputLabel value="#{bundle.EditUsuarioLabel_usuApel}" for="usuApel" />
-                    <h:inputText id="usuApel" value="#{usuarioController.selected.usuApel}" title="#{bundle.EditUsuarioTitle_usuApel}" />
+                    <h:inputText id="usuApel" value="#{usuarioController.selected.usuApel}" title="#{bundle.EditUsuarioTitle_usuApel}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_usuApel}"/>
                     <h:outputLabel value="#{bundle.EditUsuarioLabel_usuEmail}" for="usuEmail" />
-                    <h:inputText id="usuEmail" value="#{usuarioController.selected.usuEmail}" title="#{bundle.EditUsuarioTitle_usuEmail}" />
+                    <h:inputText id="usuEmail" value="#{usuarioController.selected.usuEmail}" title="#{bundle.EditUsuarioTitle_usuEmail}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_usuEmail}"/>
                     <h:outputLabel value="#{bundle.EditUsuarioLabel_usuFoto}" for="usuFoto" />
                     <h:inputTextarea rows="4" cols="30" id="usuFoto" value="#{usuarioController.selected.usuFoto}" title="#{bundle.EditUsuarioTitle_usuFoto}" />
                 </h:panelGrid>

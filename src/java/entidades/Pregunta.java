@@ -11,6 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,7 +25,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author AnDreiTa
+ * @author AnDeiiTa
  */
 @Entity
 @Table(name = "pregunta")
@@ -35,19 +37,23 @@ import javax.validation.constraints.Size;
 public class Pregunta implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "pre_id")
+    private Integer preId;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "PRE_ID")
-    private Integer preId;
-    @Size(max = 50)
-    @Column(name = "PRE_ENUN")
+    @Size(min = 1, max = 50)
+    @Column(name = "pre_enun")
     private String preEnun;
-    @Size(max = 50)
-    @Column(name = "PRE_TIPO")
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "pre_tipo")
     private String preTipo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "preId")
     private Collection<Opcion> opcionCollection;
-    @JoinColumn(name = "EN_ID", referencedColumnName = "EN_ID")
+    @JoinColumn(name = "en_id", referencedColumnName = "en_id")
     @ManyToOne(optional = false)
     private Encuesta enId;
 
@@ -56,6 +62,12 @@ public class Pregunta implements Serializable {
 
     public Pregunta(Integer preId) {
         this.preId = preId;
+    }
+
+    public Pregunta(Integer preId, String preEnun, String preTipo) {
+        this.preId = preId;
+        this.preEnun = preEnun;
+        this.preTipo = preTipo;
     }
 
     public Integer getPreId() {

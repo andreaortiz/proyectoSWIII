@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+ <ui:composition template="/templateUsuario.xhtml">
+        <ui:define name="title">
+           <h:outputText value="Nueva pregunta"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form rendered="false">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePreguntaLabel_preEnun}" for="preEnun" />
+                    <h:inputText id="preEnun" value="#{preguntaController.selected.preEnun}" title="#{bundle.CreatePreguntaTitle_preEnun}" />
+                    <h:outputLabel value="#{bundle.CreatePreguntaLabel_preTipo}" for="preTipo" />
+                    <p:selectOneMenu value="#{preguntaController.selected.preTipo}">
+                        <f:selectItems value="#{preguntaController.opciones}"/>
+                    </p:selectOneMenu>
+                    <h:outputLabel value="labe #{preguntaController.selected.preTipo}"  />
+                </h:panelGrid>
+                <br />
+                <h:outputLabel value="#{bundle.CreateOpcionLabel_opEnun}" for="opEnun" />
+                    <h:inputText id="opEnun" value="#{opcionController.selected.opEnun}" title="#{bundle.CreateOpcionTitle_opEnun}" />
+                    <br /><br/>
+                <p:commandButton value="Agregar opciones" ajax="false" actionListener="#{opcionController.create}"/>
+                <br /><br />
+                <p:commandButton value="Finalizar encuesta" ajax="false" action="/listarEncuestas"/><br />
+                <br />
+                <br />
+            </h:form>
+            
+                
+            
+         <h:form class="form0" >
+            <p:growl id="msgs" showDetail="true" />
+            <p:panel >
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel value="#{bundle.CreatePreguntaLabel_preEnun}" for="preEnun" />
+                <h:inputText id="preEnun" value="#{preguntaController.selected.preEnun}" disabled="#{preguntaController.disable}" title="#{bundle.CreatePreguntaTitle_preEnun}" />
+                <p:outputLabel for="country" value="Tipo de pregunta: " />
+                <p:selectOneMenu id="country" value="#{preguntaController.selected.preTipo}" disabled="#{preguntaController.disable}"  style="width:170px">
+                    <f:selectItem itemLabel="Seleccionar una opción" itemValue="" noSelectionOption="true" />
+                    <f:selectItems value="#{preguntaController.opciones}" />
+                </p:selectOneMenu>
+            </h:panelGrid>
+            <p:separator />
+            <p:commandButton value="Agregar opción" ajax="false" disabled="#{preguntaController.disable}" action="#{preguntaController.create(encuestaController.selected)}"/>
+            
+
+            </p:panel>
+        </h:form> 
+            <h:form class="formCancelar">
+                <p:commandButton value="Cancelar" disabled="#{preguntaController.disable}" ajax="false" action="/listarEncuestas"/>
+            </h:form>
+            
+            <h:form  class="form1" rendered="#{preguntaController.opc1}" >
+            <p:growl id="msgs" showDetail="true" />
+            <p:panel header="Opción" style="margin-bottom:10px;">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel value="#{bundle.CreateOpcionLabel_opEnun}" for="opEnun" />
+                <h:inputText id="opEnun" value="#{opcionController.selected.opEnun}" title="#{bundle.CreateOpcionTitle_opEnun}" required="true" requiredMessage="#{bundle.CreateOpcionRequiredMessage_opEnun}"/>
+                    
+            </h:panelGrid>
+            <p:separator />
+            <p:commandButton value="Guardar opción" ajax="false" actionListener="#{opcionController.create(preguntaController.selected)}"/>
+            </p:panel>
+        </h:form>             
+            
+            <h:form  class="form1" rendered="#{preguntaController.opc2}" >
+            <p:growl id="msgs" showDetail="true" />
+            <p:panel header="Opción" style="margin-bottom:10px;">
+            <h:panelGrid columns="2" cellpadding="5">
+               <h:outputLabel value="#{bundle.CreateOpcionLabel_opEnun}" for="opEnun" />
+                <h:inputText id="opEnun" value="#{opcionController.selected.opEnun}" title="#{bundle.CreateOpcionTitle_opEnun}" required="true" requiredMessage="#{bundle.CreateOpcionRequiredMessage_opEnun}"/>
+                
+                
+            </h:panelGrid>
+            <p:separator />
+            <p:commandButton value="Guardar opción" ajax="false" actionListener="#{opcionController.create(preguntaController.selected)}"/>
+            </p:panel>
+        </h:form>  
+            
+            
+            
+            <h:form  class="form1" rendered="#{preguntaController.opc3}" >
+            <p:growl id="msgs" showDetail="true" />
+            <p:panel header="Opción" style="margin-bottom:10px;">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel value="#{bundle.CreateOpcionLabel_opEnun}" for="opEnun" />
+                <h:inputText id="opEnun" value="#{opcionController.selected.opEnun}" title="#{bundle.CreateOpcionTitle_opEnun}" required="true" requiredMessage="#{bundle.CreateOpcionRequiredMessage_opEnun}"/>
+                 
+            </h:panelGrid>
+            <p:separator />
+            <p:commandButton value="Guardar opción" ajax="false" actionListener="#{opcionController.create(preguntaController.selected)}"/>
+            </p:panel>
+        </h:form>  
+            
+            
+            
+            
+            <h:form  class="form1" rendered="#{preguntaController.opc4}" >
+            <p:growl id="msgs" showDetail="true" />
+            <p:panel header="Opción" style="margin-bottom:10px;">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel value="#{bundle.CreateOpcionLabel_opEnun}" for="opEnun" />
+                <h:inputText id="opEnun" value="#{opcionController.selected.opEnun}" title="#{bundle.CreateOpcionTitle_opEnun}" required="true" requiredMessage="#{bundle.CreateOpcionRequiredMessage_opEnun}"/>
+                
+            </h:panelGrid>
+            <p:separator />
+            <p:commandButton value="Guardar opción" ajax="false" actionListener="#{opcionController.create(preguntaController.selected)}"/>
+            </p:panel>
+        </h:form>  
+        <h:form class="formboton1">   
+           <p:commandButton value="Nueva pregunta" ajax="false" actionListener="#{opcionController.create}"/> 
+        </h:form>
+        <h:form class="formboton2">   
+           <p:commandButton value="Finalizar edición" ajax="false" actionListener="#{opcionController.create}"/> 
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

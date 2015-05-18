@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,7 +22,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author AnDreiTa
+ * @author AnDeiiTa
  */
 @Entity
 @Table(name = "opcion")
@@ -32,16 +34,20 @@ import javax.validation.constraints.Size;
 public class Opcion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "op_id")
+    private Integer opId;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "OP_ID")
-    private Integer opId;
-    @Size(max = 100)
-    @Column(name = "OP_ENUN")
+    @Size(min = 1, max = 100)
+    @Column(name = "op_enun")
     private String opEnun;
-    @Column(name = "OP_CONT")
-    private Integer opCont;
-    @JoinColumn(name = "PRE_ID", referencedColumnName = "PRE_ID")
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "op_cont")
+    private int opCont;
+    @JoinColumn(name = "pre_id", referencedColumnName = "pre_id")
     @ManyToOne(optional = false)
     private Pregunta preId;
 
@@ -50,6 +56,12 @@ public class Opcion implements Serializable {
 
     public Opcion(Integer opId) {
         this.opId = opId;
+    }
+
+    public Opcion(Integer opId, String opEnun, int opCont) {
+        this.opId = opId;
+        this.opEnun = opEnun;
+        this.opCont = opCont;
     }
 
     public Integer getOpId() {
@@ -68,11 +80,11 @@ public class Opcion implements Serializable {
         this.opEnun = opEnun;
     }
 
-    public Integer getOpCont() {
+    public int getOpCont() {
         return opCont;
     }
 
-    public void setOpCont(Integer opCont) {
+    public void setOpCont(int opCont) {
         this.opCont = opCont;
     }
 

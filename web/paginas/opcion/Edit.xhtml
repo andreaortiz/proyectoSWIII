@@ -18,9 +18,9 @@
                     <h:outputLabel value="#{bundle.EditOpcionLabel_opId}" for="opId" />
                     <h:inputText id="opId" value="#{opcionController.selected.opId}" title="#{bundle.EditOpcionTitle_opId}" required="true" requiredMessage="#{bundle.EditOpcionRequiredMessage_opId}"/>
                     <h:outputLabel value="#{bundle.EditOpcionLabel_opEnun}" for="opEnun" />
-                    <h:inputText id="opEnun" value="#{opcionController.selected.opEnun}" title="#{bundle.EditOpcionTitle_opEnun}" />
+                    <h:inputText id="opEnun" value="#{opcionController.selected.opEnun}" title="#{bundle.EditOpcionTitle_opEnun}" required="true" requiredMessage="#{bundle.EditOpcionRequiredMessage_opEnun}"/>
                     <h:outputLabel value="#{bundle.EditOpcionLabel_opCont}" for="opCont" />
-                    <h:inputText id="opCont" value="#{opcionController.selected.opCont}" title="#{bundle.EditOpcionTitle_opCont}" />
+                    <h:inputText id="opCont" value="#{opcionController.selected.opCont}" title="#{bundle.EditOpcionTitle_opCont}" required="true" requiredMessage="#{bundle.EditOpcionRequiredMessage_opCont}"/>
                     <h:outputLabel value="#{bundle.EditOpcionLabel_preId}" for="preId" />
                     <h:selectOneMenu id="preId" value="#{opcionController.selected.preId}" title="#{bundle.EditOpcionTitle_preId}" required="true" requiredMessage="#{bundle.EditOpcionRequiredMessage_preId}">
                         <f:selectItems value="#{preguntaController.itemsAvailableSelectOne}"/>

@@ -3,23 +3,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:composition template="/templateLogin.xhtml">
+ <ui:composition template="/templateLogin.xhtml">
         <ui:define name="title">
-           <h:outputText value="#{bundle.CreateUsuarioTitle}"></h:outputText>
+           <h:outputText value="Inicia sesión"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form id="Login">
-                <h:outputLabel value="Login:"/>
-                <h:inputText value="#{loginController.selected.usuNomusu}"/>
+            <h:form id="formLogin">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Usuario:"/>
+                    <h:inputText value="#{loginController.selected.usuNomusu}"/>
+                    <h:outputLabel value="Contraseña:"/>
+                    <h:inputText value="#{loginController.selected.usuPass}"/>
+                </h:panelGrid>
                 <br></br>
-                <h:outputLabel value="Contraseña:"/>
-                <h:inputText value="#{loginController.selected.usuPass}"/>
-                <h:commandButton value="Iniciar sesion" action="#{loginController.autenticar()}"/>
+                <p:commandButton value="Ingresar" ajax="false" action="#{loginController.autenticar()}" actionListener="#{encuestaController.guardarUsuario(loginController.obtenerUsuario())}"/>
+                <br></br>
+                <h:link value="Necesitas ayuda?" outcome="/index"></h:link>
             </h:form>
         </ui:define>
     </ui:composition>

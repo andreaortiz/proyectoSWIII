@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/templateUsuario.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Mis encuestas"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEncuestaEmpty}" rendered="#{encuestaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{encuestaController.items.rowCount > 0}">
+                    <h:outputText value="#{encuestaController.pagination.pageFirstItem + 1}..#{encuestaController.pagination.pageLastItem + 1}/#{encuestaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{encuestaController.previous}" value="#{bundle.Previous} #{encuestaController.pagination.pageSize}" rendered="#{encuestaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{encuestaController.next}" value="#{bundle.Next} #{encuestaController.pagination.pageSize}" rendered="#{encuestaController.pagination.hasNextPage}"/>&nbsp;
+                    
+                    <p:dataTable value="#{encuestaController.items}" var="item"  style="border:solid 1px">
+                        <p:column>
+                            <f:facet name="header" >
+                                <h:outputText value="#{bundle.ListEncuestaTitle_enId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enId}"/>
+                        </p:column>
+                        <p:column >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEncuestaTitle_enTit}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enTit}"/>
+                        </p:column>
+                        <p:column >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEncuestaTitle_enDes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enDes}"/>
+                        </p:column>
+                        <p:column >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEncuestaTitle_enState}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.enState}"/>
+                        </p:column>
+                        <p:column  >
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEncuestaTitle_usuId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuId}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{encuestaController.prepareView}" value="#{bundle.ListEncuestaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{encuestaController.prepareEdit}" value="#{bundle.ListEncuestaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{encuestaController.destroy}" value="#{bundle.ListEncuestaDestroyLink}"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{encuestaController.prepareCreate}" value="#{bundle.ListEncuestaCreateLink}"/>
+                <br />
+                <br />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
